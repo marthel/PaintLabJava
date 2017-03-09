@@ -25,7 +25,7 @@ public class Main extends Application {
         primaryStage.setTitle("Painter");
         // en scen skapas av fxml-filer
 
-        primaryStage.setScene(new Scene(root, 1600, 1080));
+        primaryStage.setScene(new Scene(root, 800,484 ));
 
         // Det är själva scenen som är det synliga (viewen)
         primaryStage.show();

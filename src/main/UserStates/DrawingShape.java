@@ -1,23 +1,21 @@
 package main.UserStates;
 
-import com.sun.javafx.geom.Shape;
 
 import java.util.List;
+import javafx.scene.shape.Shape;
 
 /**
  * Created by martin on 02/03/2017.
  */
 public class DrawingShape extends State {
 
+    public DrawingShape(Shape currentShape) {
+        super(currentShape);
+    }
 
     @Override
     State selectedShape(Shape shape) {
-        return new GroupSelected();
-    }
-
-    @Override
-    State selectedShapes(List<Shape> shapes) {
+        //place the shape
         return new ShapeSelected();
     }
-
 }
