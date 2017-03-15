@@ -64,6 +64,12 @@ abstract public class Shape implements Movable, Resizable, Cloneable {
     public boolean isInsideBounds(double x, double y){
         return (x > point1.getX()) && (y > point1.getY()) && (x < point2.getX()) && (y < point2.getY());
     }
+    public boolean isInsideResizeBounds(double x, double y){
+        if((x > point1.getX()) && (y > point1.getY()) && (x < point2.getX()) && (y < point2.getY())){
+            return point2.distanceToPoint(new Point(x , y)) < 10;
+        }
+        return false;
+    }
     @Override
     public void move(double x, double y) {
         double dx = Math.abs(point1.getX() - point2.getX());
@@ -73,8 +79,8 @@ abstract public class Shape implements Movable, Resizable, Cloneable {
     }
     @Override
     public void resize(double x, double y) {
-        point2.setX(x);
-        point2.setY(y);
+            point2.setY(y);
+            point2.setX(x);
     }
 
 }

@@ -26,4 +26,16 @@ public class Point {
     public void setY(double y) {
         this.y = y;
     }
+
+    //d=√((x2-x1)^2​+(y2−y1)^​2)
+    public double distanceToPoint(Point p) {
+        return Math.sqrt(Math.pow((p.getX()-x),2)+ Math.pow((p.getY()-y),2));
+    }
+
+    public static Point closestPoint(Point mouse,Point topLeft,Point bottomRight){
+        return Math.sqrt(Math.pow((mouse.getX()-topLeft.getX()),2)+ Math.pow((mouse.getY()-topLeft.getY()),2)) <
+                Math.sqrt(Math.pow((mouse.getX()-bottomRight.getX()),2)+ Math.pow((mouse.getY()-bottomRight.getY()),2)) ?
+                topLeft :
+                bottomRight;
+    }
 }

@@ -39,6 +39,9 @@ public class ShapeSelected extends State {
         //change to resize state if the shape corner is dragged, if the shape is dragged change to moving, if the canvas is dragged change to groupselected state
         double x = ((MouseEvent)event).getX();
         double y = ((MouseEvent)event).getY();
+        if(shape.isInsideResizeBounds(x,y)){
+            return new Resize(shapes,shape);
+        }
         if(shape.isInsideBounds(x,y)) {
             return new Moving(shapes,shape);
         }
