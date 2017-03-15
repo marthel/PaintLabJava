@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="800.0" style="-fx-background-color: #aaaaaa;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="800.0" style="-fx-background-color: #aaaaaa;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.Controller">
    <children>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="304.0" prefWidth="96.0" style="-fx-background-color: #555555;">
          <children>
@@ -16,6 +16,6 @@
             <Button id="circle" layoutX="19.0" layoutY="152.0" mnemonicParsing="false" onAction="#addShape" text="O" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="canvas" layoutX="206.0" layoutY="30.0" prefHeight="398.0" prefWidth="450.0" style="-fx-background-color: #FFFFFF;" />
+      <Canvas fx:id="canvas" height="361.0" layoutX="150.0" layoutY="42.0" width="514.0" />
    </children>
 </AnchorPane>
