@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
 
-
+    boolean updateShapes;
     StateHandler stateHandler;
     GraphicsContext gc;
 
@@ -36,7 +36,7 @@ public class Controller implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         stateHandler = new StateHandler();
         gc = canvas.getGraphicsContext2D();
-
+        updateShapes = false;
         gc.setFill(Color.WHITE);
         gc.fillRect(0,0,canvas.getWidth(),canvas.getHeight());
 
@@ -55,14 +55,13 @@ public class Controller implements Initializable{
         new DrawTimer().start();
     }
 
-
     protected class DrawTimer extends AnimationTimer {
 
         @Override
         public void handle(long now) {
             gc.setFill(Color.WHITE);
-            gc.fillRect(0,0,canvas.getWidth(),canvas.getHeight());
-            for (Shape shape: stateHandler.getShapesToDraw()) {
+            gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+            for (Shape shape : stateHandler.getShapesToDraw()) {
                 shape.draw(gc);
             }
         }

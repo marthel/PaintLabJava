@@ -64,6 +64,18 @@ abstract public class Shape implements Movable, Resizable, Cloneable {
     public boolean isInsideBounds(double x, double y){
         return (x > point1.getX()) && (y > point1.getY()) && (x < point2.getX()) && (y < point2.getY());
     }
+
+    public boolean isInsideBounds(Point start, Point end){
+        return (point1.getX() > start.getX()) &&
+                (point1.getY() > start.getY()) &&
+                (point2.getX() > start.getX()) &&
+                (point2.getY() > start.getY()) &&
+                (point1.getX() < end.getX()) &&
+                (point1.getY() < end.getY()) &&
+                (point2.getX() < end.getX()) &&
+                (point2.getY() < end.getY());
+    }
+
     public boolean isInsideResizeBounds(double x, double y){
         if((x > point1.getX()) && (y > point1.getY()) && (x < point2.getX()) && (y < point2.getY())){
             return point2.distanceToPoint(new Point(x , y)) < 10;

@@ -2,6 +2,7 @@ package main.Model.UserStates;
 
 import javafx.event.Event;
 import javafx.scene.input.MouseEvent;
+import main.Model.Point;
 import main.Model.Shapes.Shape;
 
 import java.util.List;
@@ -41,6 +42,8 @@ public class Default extends State {
     @Override
     public State receivedMouseDrag(Event event) {
         //if more than one shape is selected change to selectedGroup state
-        return new Default(shapes, null);
+        double x = ((MouseEvent)event).getX();
+        double y = ((MouseEvent)event).getY();
+        return new GroupSelected(shapes,null, new Point(x,y));
     }
 }
