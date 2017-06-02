@@ -8,12 +8,20 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="800.0" style="-fx-background-color: #aaaaaa;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.Controller">
    <children>
-      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="304.0" prefWidth="96.0" style="-fx-background-color: #555555;">
+      <AnchorPane layoutX="11.0" layoutY="20.0" prefHeight="304.0" prefWidth="134.0" style="-fx-background-color: #555555;">
          <children>
             <Button id="line" layoutX="19.0" layoutY="24.0" mnemonicParsing="false" onAction="#addShape" text="\\" />
-            <Button id="triangle" layoutX="19.0" layoutY="66.0" mnemonicParsing="false" onAction="#addShape" text="^" />
-            <Button id="square" layoutX="19.0" layoutY="107.0" mnemonicParsing="false" onAction="#addShape" text="#" />
-            <Button id="circle" layoutX="19.0" layoutY="152.0" mnemonicParsing="false" onAction="#addShape" text="O" />
+            <Button id="triangle" layoutX="65.0" layoutY="24.0" mnemonicParsing="false" onAction="#addShape" text="^" />
+            <Button id="square" layoutX="69.0" layoutY="65.0" mnemonicParsing="false" onAction="#addShape" text="#" />
+            <TextField fx:id="saveFileName" layoutX="53.0" layoutY="225.0" prefHeight="27.0" prefWidth="59.0" />
+            <TextField fx:id="loadFileName" layoutX="53.0" layoutY="263.0" prefHeight="27.0" prefWidth="59.0" />
+            <Button id="save" layoutX="17.0" layoutY="225.0" mnemonicParsing="false" onAction="#saveFile" text="S" />
+            <Button id="load" layoutX="19.0" layoutY="263.0" mnemonicParsing="false" onAction="#loadFile" text="L" />
+            <TextField id="green" fx:id="green" layoutX="47.0" layoutY="159.0" prefHeight="27.0" prefWidth="36.0" />
+            <TextField id="red" fx:id="red" layoutX="2.0" layoutY="159.0" prefHeight="27.0" prefWidth="36.0" />
+            <TextField id="blue" fx:id="blue" layoutX="94.0" layoutY="159.0" prefHeight="27.0" prefWidth="36.0" />
+            <Button id="line" layoutX="3.0" layoutY="125.0" mnemonicParsing="false" onAction="#fillShape" text="fill" />
+            <Button id="circle" layoutX="18.0" layoutY="65.0" mnemonicParsing="false" onAction="#addShape" text="O" />
          </children>
       </AnchorPane>
       <Canvas fx:id="canvas" height="361.0" layoutX="150.0" layoutY="42.0" width="514.0" />

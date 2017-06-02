@@ -1,9 +1,11 @@
 package main.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by martin on 11/03/2017.
  */
-public class Point {
+public class Point implements Serializable{
     double x,y;
 
     public Point(double x, double y) {

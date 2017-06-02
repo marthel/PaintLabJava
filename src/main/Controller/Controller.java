@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import main.Model.Shapes.Shape;
@@ -28,8 +29,35 @@ public class Controller implements Initializable{
     Canvas canvas;
 
     @FXML
+    TextField saveFileName;
+    @FXML
+    TextField loadFileName;
+
+    @FXML
+    TextField red;
+    @FXML
+    TextField green;
+    @FXML
+    TextField blue;
+
+    @FXML
+    public void fillShape(){
+        stateHandler.setCurrentColour(red.getText(),green.getText(),blue.getText());
+    }
+
+    @FXML
     public void addShape(Event event){
         stateHandler.updateState(event);
+    }
+
+    @FXML
+    public void saveFile(Event event){
+        stateHandler.saveFile(saveFileName.getText());
+    }
+
+    @FXML
+    public void loadFile(Event event){
+        stateHandler.loadFile(loadFileName.getText());
     }
 
     @Override

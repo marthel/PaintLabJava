@@ -34,7 +34,7 @@ public class GroupSelected extends State {
             return new Default(shapes, null);
         } else {
             System.out.println(selectedShapes.size());
-            return new Default(shapes, null);
+            return new MovingGroup(shapes, null, selectedShapes);
         }
     }
 

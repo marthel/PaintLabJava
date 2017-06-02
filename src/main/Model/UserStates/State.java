@@ -12,7 +12,6 @@ import java.util.List;
 public abstract class State {
     Shape shape;
     List<Shape> shapes;
-
     public List<Shape> getShapes() {
         return shapes;
     }
@@ -40,7 +39,8 @@ public abstract class State {
     public State receivedButtonAction() {return null;}
     public State receivedMouseClick(Event event) {return null;}
     public State receivedMouseDrag(Event event) {return null;}
-
+    public State returnToDefault(){return new Default(shapes,shape);}
+    public State filling(double r, double g, double b){return new Filling(shapes,shape,r,g,b);}
     public List<Shape> getShapesToDraw() {
         return shapes;
     }

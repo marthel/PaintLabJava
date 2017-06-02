@@ -6,6 +6,8 @@ import main.Model.Movable;
 import main.Model.Point;
 import main.Model.Resizable;
 
+import java.io.Serializable;
+
 /**
  * A representation of an abstract drawablee shape. For consistency, (x,y)
  * should represent the upper-left point for all sub shapes. The velocity,
@@ -18,15 +20,24 @@ import main.Model.Resizable;
  *
  * @author Anders Lindström, anderslm@kth.se 2015-09-16
  */
-abstract public class Shape implements Movable, Resizable, Cloneable {
+abstract public class Shape implements Movable, Resizable, Cloneable, Serializable {
 
     private Point point1, point2;
-    private Color color;
+    private double red,blue,green;
 
+    protected Shape(double x, double y, double red, double green, double blue) {
+        this.point1 = new Point(x,y);
+        this.point2 = new Point(x,y);
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+    }
     protected Shape(double x, double y) {
         this.point1 = new Point(x,y);
         this.point2 = new Point(x,y);
-        this.color = Color.BLACK;
+        this.red = 0.0;
+        this.green = 0.0;
+        this.blue = 0.0;
     }
 
     @Override
@@ -54,10 +65,12 @@ abstract public class Shape implements Movable, Resizable, Cloneable {
         this(0.0, 0.0);
     }
     public Color getColor() {
-        return color;
+        return new Color(red,green,blue,1);
     }
-    public void setColor(Color newColor) {
-        this.color = newColor;
+    public void setColor(double red, double green, double blue) {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
     }
     abstract public void draw(GraphicsContext gc);
 
@@ -89,6 +102,7 @@ abstract public class Shape implements Movable, Resizable, Cloneable {
         point1 = new Point(x,y);
         point2 = new Point(x + dx, y + dy);
     }
+
     @Override
     public void resize(double x, double y) {
             point2.setY(y);
