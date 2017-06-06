@@ -3,6 +3,8 @@ package main.Model;
 
 import javafx.event.Event;
 import javafx.scene.control.Control;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import main.Model.ShapeFactory;
 import main.Model.Shapes.Circle;
 import main.Model.Shapes.Line;
@@ -57,6 +59,17 @@ public class StateHandler {
                 break;
             case "MOUSE_CLICKED":
                 currentState = currentState.receivedMouseClick(event);
+                break;
+            case "KEY_PRESSED":
+                System.out.println("shapes: " + currentState.getShapes().size());
+                System.out.println("stack: " + currentState.pr.undoMethods.size());
+                if(((KeyEvent)event).getCode()== KeyCode.R) {
+                    currentState.pr.invokePopRedoMethods();
+                    System.out.println("You pressed R");
+                }else if (((KeyEvent)event).getCode()== KeyCode.U){
+                    System.out.println("You pressed U");
+                    currentState.pr.invokePopUndoMethods();
+                }
                 break;
             default:
                 System.out.println("DEFAULT");

@@ -3,6 +3,7 @@ package main.Model.UserStates;
 import javafx.event.Event;
 import main.Model.Shapes.Shape;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,9 @@ import java.util.List;
 public abstract class State {
     Shape shape;
     List<Shape> shapes;
+
+    public static final PanelRegion pr = new PanelRegion();
+
     public List<Shape> getShapes() {
         return shapes;
     }

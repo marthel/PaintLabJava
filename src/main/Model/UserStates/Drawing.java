@@ -29,6 +29,8 @@ public class Drawing extends State {
         double y = ((MouseEvent)event).getY();
         shape.setPoint1(new Point(x,y));
         shape.setPoint2(new Point(x+50,y+50));
+
+        super.pr.addUndoMethod(() ->  this.shapes.remove(shape));
         shapes.add(shape);
         return new ShapeSelected(shapes,shape);
     }
@@ -38,6 +40,7 @@ public class Drawing extends State {
         double x = ((MouseEvent)event).getX();
         double y = ((MouseEvent)event).getY();
         shape.setPoint1(new Point(x,y));
+        super.pr.addUndoMethod(() ->  this.shapes.remove(shape));
         shapes.add(shape);
         return new Resize(shapes,shape);
     }

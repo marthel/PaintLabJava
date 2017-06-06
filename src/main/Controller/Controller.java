@@ -5,25 +5,25 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 import javafx.scene.paint.Color;
 import main.Model.Shapes.Shape;
 import main.Model.StateHandler;
-
+import javafx.scene.input.KeyEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
 
     boolean updateShapes;
-    StateHandler stateHandler;
+    Scene scene;
+    public StateHandler stateHandler;
     GraphicsContext gc;
 
-    public Controller() {
-    }
 
     @FXML
     Canvas canvas;
@@ -62,7 +62,7 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        stateHandler = new StateHandler();
+        this.stateHandler = new StateHandler();
         gc = canvas.getGraphicsContext2D();
         updateShapes = false;
         gc.setFill(Color.WHITE);
@@ -80,9 +80,14 @@ public class Controller implements Initializable{
                 stateHandler.updateState(event);
             }
         });
+
         new DrawTimer().start();
     }
 
+    @FXML
+    public void keyHandler(Event event) {
+        this.stateHandler.updateState(event);
+    }
     protected class DrawTimer extends AnimationTimer {
 
         @Override
